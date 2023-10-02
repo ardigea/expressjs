@@ -1,0 +1,185 @@
+<!-- -npm init- untuk install package.json -->
+<!-- -npm install express- untuk install expressjs -->
+<!-- -npm run dev- untuk runing di broswser -->
+<!-- npm i nodemon untuk automatic restart-->
+<!-- npm install -g nodemon untuk early-->
+<!-- nodemon index.js -->
+
+<!-- login database mysql -->
+<!-- C:\Users\Gea>cd ..
+
+-- C:\Users>cd..
+
+-- C:\>cd xampp
+
+-- C:\xampp>cd mysql
+
+-- C:\xampp\mysql>cd bin
+
+-- C:\xampp\mysql\bin>mysql -u root
+-- Welcome to the MariaDB monitor.  Commands end with ; or \g.
+-- Your MariaDB connection id is 40
+-- Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+-- Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+-- Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+-- MariaDB [(none)]> show databases;
+-- +--------------------+
+-- | Database           |
+-- +--------------------+
+-- | db_toko            |
+-- | information_schema |
+-- | laravel            |
+-- | mysql              |
+-- | performance_schema |
+-- | phpmyadmin         |
+-- | test               |
+-- +--------------------+
+-- 7 rows in set (0.001 sec)
+
+-- MariaDB [(none)]> create database revou_express;
+-- Query OK, 1 row affected (0.005 sec)
+
+-- MariaDB [(none)]> show databases;
+-- +--------------------+
+-- | Database           |
+-- +--------------------+
+-- | db_toko            |
+-- | information_schema |
+-- | laravel            |
+-- | mysql              |
+-- | performance_schema |
+-- | phpmyadmin         |
+-- | revou_express      |
+-- | test               |
+-- +--------------------+
+-- 8 rows in set (0.001 sec)
+
+-- MariaDB [(none)]> use revou_express;
+-- Database changed
+-- MariaDB [revou_express]> show tables;
+-- Empty set (0.001 sec)
+
+-- MariaDB [revou_express]> create table customers(
+--     -> customerID INT PRIMARY KEY AUTO_INCREMENT,
+--     -> name VARCHAR(100) NOT NULL,
+--     -> email VaRCHAR(50) NOT NULL,
+--     -> role VARCHAR(25)
+--     -> );
+-- Query OK, 0 rows affected (0.018 sec)
+
+-- MariaDB [revou_express]> show tables;
+-- +-------------------------+
+-- | Tables_in_revou_express |
+-- +-------------------------+
+-- | customers               |
+-- +-------------------------+
+-- 1 row in set (0.001 sec)
+
+-- MariaDB [revou_express]> INSERT INTO customers
+--     -> (name, email, role)
+--     ->  VALUES
+--     -> ("Gea", "hadirmangea25@gmail.com", "dev");
+-- Query OK, 1 row affected (0.006 sec)
+
+-- MariaDB [revou_express]> SELECT * FROM customers
+--     -> ;
+-- +------------+------+-------------------------+------+
+-- | customerID | name | email                   | role |
+-- +------------+------+-------------------------+------+
+-- |          1 | Gea  | hadirmangea25@gmail.com | dev  |
+-- +------------+------+-------------------------+------+
+-- 1 row in set (0.001 sec)
+
+-- MariaDB [revou_express]> SELECT name FROM customers
+--     -> ;
+-- +------+
+-- | name |
+-- +------+
+-- | Gea  |
+-- +------+
+-- 1 row in set (0.000 sec)
+
+-- MariaDB [revou_express]> INSERT INTO customers
+--     -> (name, email, role)
+--     ->  VALUES
+--     -> ("yea", "yea25@gmail.com", "eng");
+-- Query OK, 1 row affected (0.006 sec)
+
+-- MariaDB [revou_express]> INSERT INTO customers VALUES (3, "ard", "ard@gmail.com", "soft");
+-- Query OK, 1 row affected (0.005 sec)
+
+-- MariaDB [revou_express]>  SELECT * FROM customers
+--     -> ;
+-- +------------+------+-------------------------+------+
+-- | customerID | name | email                   | role |
+-- +------------+------+-------------------------+------+
+-- |          1 | Gea  | hadirmangea25@gmail.com | dev  |
+-- |          2 | yea  | yea25@gmail.com         | eng  |
+-- |          3 | ard  | ard@gmail.com           | soft |
+-- +------------+------+-------------------------+------+
+-- 3 rows in set (0.001 sec)
+
+-- MariaDB [revou_express]>  SELECT * FROM customers;
+-- +------------+------+-------------------------+------+
+-- | customerID | name | email                   | role |
+-- +------------+------+-------------------------+------+
+-- |          1 | Gea  | hadirmangea25@gmail.com | dev  |
+-- |          2 | yea  | yea25@gmail.com         | eng  |
+-- |          3 | ard  | ard@gmail.com           | soft |
+-- +------------+------+-------------------------+------+
+-- 3 rows in set (0.001 sec)
+
+-- MariaDB [revou_express]> select * FROM customers where customerID = 1
+--     -> ;
+-- +------------+------+-------------------------+------+
+-- | customerID | name | email                   | role |
+-- +------------+------+-------------------------+------+
+-- |          1 | Gea  | hadirmangea25@gmail.com | dev  |
+-- +------------+------+-------------------------+------+
+-- 1 row in set (0.003 sec)
+
+-- MariaDB [revou_express]> select * FROM customers where customerID = 2
+--     -> ;
+-- +------------+------+-----------------+------+
+-- | customerID | name | email           | role |
+-- +------------+------+-----------------+------+
+-- |          2 | yea  | yea25@gmail.com | eng  |
+-- +------------+------+-----------------+------+
+-- 1 row in set (0.001 sec)
+
+-- MariaDB [revou_express]> select * FROM customers where customerID = 3;
+-- +------------+------+---------------+------+
+-- | customerID | name | email         | role |
+-- +------------+------+---------------+------+
+-- |          3 | ard  | ard@gmail.com | soft |
+-- +------------+------+---------------+------+
+-- 1 row in set (0.001 sec)
+
+-- MariaDB [revou_express]> UPDATE customers SET name="Lancelot", role="roam" WHERE customerID=1;
+-- Query OK, 1 row affected (0.006 sec)
+-- Rows matched: 1  Changed: 1  Warnings: 0
+
+-- MariaDB [revou_express]> select * FROM customers where customerID = 1;
+-- +------------+----------+-------------------------+------+
+-- | customerID | name     | email                   | role |
+-- +------------+----------+-------------------------+------+
+-- |          1 | Lancelot | hadirmangea25@gmail.com | roam |
+-- +------------+----------+-------------------------+------+
+-- 1 row in set (0.001 sec)
+
+-- MariaDB [revou_express]> DELETE FROM customers WHERE customerID = 3;
+-- Query OK, 1 row affected (0.005 sec)
+
+-- MariaDB [revou_express]> select * FROM customers;
+-- +------------+----------+-------------------------+------+
+-- | customerID | name     | email                   | role |
+-- +------------+----------+-------------------------+------+
+-- |          1 | Lancelot | hadirmangea25@gmail.com | roam |
+-- |          2 | yea      | yea25@gmail.com         | eng  |
+-- +------------+----------+-------------------------+------+
+-- 2 rows in set (0.000 sec)
+
+-- MariaDB [revou_express]> -->
